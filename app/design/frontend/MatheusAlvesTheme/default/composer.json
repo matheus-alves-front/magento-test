@@ -1,0 +1,9 @@
+{
+  "name": "lucas-calazans/theme-frontend-default",
+  "type": "magento2-theme",
+  "autoload": {
+      "files": [
+          "registration.php"
+      ]
+  }
+}
