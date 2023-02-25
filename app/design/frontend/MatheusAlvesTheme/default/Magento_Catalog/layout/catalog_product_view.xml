@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.details" remove="true" />
+        <referenceBlock name="product.info.review" remove="true" />
+        <referenceBlock name="breadcrumbs" remove="true" />
+        <referenceContainer name="content.aside" remove="true" />
+        <move element="product.info.description" destination="product.info.main" after="-"/>
+        <move element="product.info.overview" destination="product.info.main" before="product.info.price" />
+        <move element="view.addto.wishlist" destination="product.info.media" before="-" />
+        <referenceBlock name="product.info.stock.sku" remove="true" />
+        <referenceContainer name="product.info.social" remove="true" />
+        <!-- <referenceBlock name="footer" remove="true" /> -->
+        <referenceBlock name="copyright" remove="true" />
+    </body>
+</page>

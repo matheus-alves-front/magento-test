@@ -61,17 +61,6 @@
     opacity: @slick-opacity-default;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    
-    & when ( @slick-font-family = 'slick' ) {
-        /* Icons */
-        @font-face {
-            font-family: 'slick';
-            font-weight: normal;
-            font-style: normal;
-            src: url('@{slick-font-path}slick.eot');
-            src: url('@{slick-font-path}slick.eot?#iefix') format('embedded-opentype'), url('@{slick-font-path}slick.woff') format('woff'), url('@{slick-font-path}slick.ttf') format('truetype'), url('@{slick-font-path}slick.svg#slick') format('svg');
-        }
-    }
 }
 
 .slick-prev {
@@ -110,7 +99,7 @@
 
 .slick-dots {
     position: absolute;
-    bottom: -25px;
+    bottom: -35px;
     list-style: none;
     display: block;
     text-align: center;
@@ -125,6 +114,7 @@
         margin: 0 5px;
         padding: 0;
         cursor: pointer;
+
         button {
             border: 0;
             background: transparent;
@@ -144,12 +134,15 @@
                 }
             }
             &:before {
+                border-radius: 100px;
+                opacity: .5;
+                background-color: @color-black;
                 position: absolute;
                 top: 0;
                 left: 0;
-                content: @slick-dot-character;
+                content: '';
                 width: 20px;
-                height: 20px;
+                height: 4px;
                 font-family: @slick-font-family;
                 font-size: @slick-dot-size;
                 line-height: 20px;
@@ -161,8 +154,7 @@
             }
         }
         &.slick-active button:before {
-            color: @slick-dot-color-active;
-            opacity: @slick-opacity-default;
+            opacity: 1;
         }
     }
 }
