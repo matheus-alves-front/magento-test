@@ -16,7 +16,7 @@
         <move element="view.addto.wishlist" destination="product.info.media" before="-" />
         <referenceBlock name="product.info.stock.sku" remove="true" />
         <referenceContainer name="product.info.social" remove="true" />
-        <referenceBlock name="footer" remove="true" />
+        <!-- <referenceBlock name="footer" remove="true" /> -->
         <referenceBlock name="copyright" remove="true" />
     </body>
 </page>
