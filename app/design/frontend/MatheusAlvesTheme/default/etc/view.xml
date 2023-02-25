@@ -190,6 +190,18 @@
                 <width>240</width>
                 <height>300</height>
             </image>
+            <image id="swatch_image" type="swatch_image">
+                <width>60</width>
+                <height>70</height>
+            </image>
+            <image id="swatch_thumb" type="swatch_thumb">
+                <width>60</width>
+                <height>70</height>
+            </image>
+            <image id="swatch_image_base" type="swatch_image">
+                <width>60</width>
+                <height>70</height>
+            </image>
         </images>
     </media>
     <vars module="Magento_Catalog">

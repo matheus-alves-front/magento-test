@@ -12,5 +12,11 @@
         <referenceBlock name="breadcrumbs" remove="true" />
         <referenceContainer name="content.aside" remove="true" />
         <move element="product.info.description" destination="product.info.main" after="-"/>
+        <move element="product.info.overview" destination="product.info.main" before="product.info.price" />
+
+        <referenceBlock name="product.info.stock.sku" remove="true" />
+        <!-- <referenceContainer name="product.info.social" remove="true" /> -->
+        <referenceBlock name="footer" remove="true" />
+        <referenceBlock name="copyright" remove="true" />
     </body>
 </page>

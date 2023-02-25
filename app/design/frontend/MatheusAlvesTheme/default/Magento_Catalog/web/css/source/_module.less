@@ -19,11 +19,18 @@
 //  _____________________________________________
 
 & when (@media-common = true) {
-
     //  Category view
     .old-price,
     .old.price {
         .lib-css(color, @product-price__muted__color);
+    }
+
+    .page-title-wrapper.product {
+        .page-title {
+            font-size: 3.5rem;
+            color: @color-black;
+            margin-bottom: 0;
+        }
     }
 
     .prices-tier {
@@ -167,19 +174,23 @@
     .product-info-main {
         .product-info-price {
             .lib-css(color, @product-info-price);
-            border-bottom: 1px solid @color-gray-light5;
-            display: table;
-            margin-bottom: @indent__s + @indent__xs;
+            border-bottom: 0;
+            .lib-vendor-prefix-display(flex);
             width: 100%;
-
+            
             .price-box {
                 display: inline-block;
                 vertical-align: top;
                 width: auto;
-
+                
                 .price-container {
+                    color: @color-black;
+                    font-size: 2rem;
+
                     > span {
-                        display: block;
+                        &.price-label {
+                            display: none !important;
+                        }
                         margin-bottom: @indent__xs;
 
                         &:last-child {
@@ -201,7 +212,7 @@
             }
 
             .price-wrapper .price {
-                .lib-font-size(22);
+                font-size: 2rem;
                 font-weight: @font-weight__semibold;
                 line-height: 22px;
             }
@@ -268,18 +279,20 @@
                 }
 
                 &.overview {
-                    margin: @indent__base 0;
+                    margin: 0;
+                    font-weight: @font-weight__regular;
+                    color: @color-black;
+
+                    p {
+                        font-size: 1.8rem;
+                        margin-top: 10px;
+                    }
                 }
             }
 
             &.alert {
                 margin: @indent__s 0;
             }
-        }
-
-        .product-add-form {
-            clear: both;
-            padding-top: @indent__s + @indent__xs;
         }
 
         .product-reviews-summary {
@@ -289,6 +302,10 @@
         .product-options-bottom {
             .box-tocart {
                 margin-top: @form-field__vertical-indent;
+
+                .qty {
+                    display: none;
+                }
             }
         }
     }
@@ -398,14 +415,8 @@
     .box-tocart {
         &:extend(.abs-box-tocart all);
 
-        .field.qty {
-        }
-
         .input-text.qty {
             &:extend(.abs-input-qty all);
-        }
-
-        .actions {
         }
 
         .action.tocart {
@@ -615,6 +626,7 @@
         .column.main {
             .lib-vendor-prefix-display(flex);
             .lib-vendor-prefix-flex-direction(column);
+            gap: 4rem;
         }
 
         .product.media {
@@ -654,15 +666,26 @@
 //  _____________________________________________
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .catalog-product-view {
+        .column.main {
+            .lib-vendor-prefix-display(flex);
+            .lib-vendor-prefix-flex-direction(row-reverse);
+            justify-content: space-between;
+        }
+    }
+
+    .page-title-wrapper.product {
+        .page-title {
+            font-size: 7rem;
+            margin-bottom: 0;
+        }
+    }
+
     .product-info-main {
         .page-title-wrapper {
             h1 {
                 .lib-css(margin-bottom, @product-h1-margin-bottom-desktop);
             }
-        }
-
-        .product-add-form {
-            padding-top: @indent__base;
         }
     }
 
@@ -677,8 +700,7 @@
                 font-size: @font-size__xl;
 
                 .price {
-                    font-size: 36px;
-                    line-height: 36px;
+                    font-size: 1.7rem;
                 }
             }
 
@@ -707,6 +729,11 @@
     .page-layout-1column {
         .product-info-main {
             width: 40%;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            height: fit-content;
+            margin-top: 50px;
         }
 
         .product.media {

@@ -69,6 +69,8 @@
         &-attribute {
             &-label {
                 font-weight: @font-weight__bold;
+                color: @color-black;
+                text-transform: uppercase;
                 position: relative;
 
                 &.required {
@@ -87,8 +89,9 @@
             }
 
             &-selected-option {
-                .lib-css(color, @swatch-attribute-option__selected__color);
-                padding-left: 17px;
+                .lib-css(color, @color-black);
+                padding-left: 5px;
+                text-transform: uppercase;
             }
 
             &-options {
@@ -113,13 +116,8 @@
             &.size,
             &.manufacturer {
                 .swatch-option {
-                    .lib-css(background, @attr-swatch-option__background);
-                    .lib-css(color, @attr-swatch-option__color);
-
                     &.selected {
-                        .lib-css(background, @attr-swatch-option__selected__background);
-                        .lib-css(border, @attr-swatch-option__selected__border);
-                        .lib-css(color, @attr-swatch-option__selected__color);
+                        
                     }
                 }
             }
@@ -132,49 +130,45 @@
             height: 20px;
             margin: 0 @indent__s @indent__xs 0;
             max-width: 100%;
-            min-width: 30px;
+            min-width: 40px;
             overflow: hidden;
             padding: 1px 2px;
             position: relative;
             text-align: center;
-            text-overflow: ellipsis;
 
             &:focus {
                 box-shadow: @focus__box-shadow;
             }
 
             &.text {
-                .lib-css(background, @swatch-option-text__background);
-                .lib-css(color, @swatch-option-text__color);
-                font-size: @font-size__s;
-                font-weight: @font-weight__bold;
-                line-height: 20px;
-                margin-right: 7px;
-                min-width: 22px;
-                padding: 4px 8px;
-
-                &.selected {
-                    .lib-css(background-color, @swatch-option-text__selected__background-color);
-                }
+                border: 1px solid @color-black;
+                color: @color-black;
+                font-weight: @font-weight__semibold;
+                padding: 5px 30px;
+                background: transparent;
+                border-radius: 100px;
+                transition: .3s ease-in-out;
+                outline: none;
+                text-overflow: unset;
+                box-shadow: none;
             }
 
             &.selected {
-                .lib-css(outline, @swatch-option__selected__outline);
-                .lib-css(border, @swatch-option__selected__border);
-                .lib-css(color, @swatch-option__selected__color);
+                .lib-css(background, @color-black);
+                .lib-css(color, @color-white);
             }
 
             &:not(.disabled):hover {
-                .lib-css(border, @swatch-option__hover__border);
-                .lib-css(color, @swatch-option__hover__color);
-                .lib-css(outline, @swatch-option__hover__outline);
+                .lib-css(background, @color-black);
+                .lib-css(color, @color-white);
             }
 
             &.image,
             &.color {
                 &:not(.disabled):hover {
-                    .lib-css(border, @img-color-swatch-option__hover__border);
-                    .lib-css(outline, @img-color-swatch-option__hover__outline);
+                    border: 1px solid @color-black;
+                    box-shadow: none;
+                    text-overflow: unset;
                 }
             }
 
@@ -182,22 +176,20 @@
                 box-shadow: unset;
                 cursor: default;
                 pointer-events: none;
+                opacity: .5;
 
                 &:after {
-                    //  ToDo: improve .lib-background-gradient() to support diagonal gradient
-                    background: linear-gradient(to left top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 1) 43%, rgba(255, 255, 255, 1) 46%, rgba(255, 82, 22, 1) 47%, rgba(255, 82, 22, 1) 53%, rgba(255, 255, 255, 1) 54%, rgba(255, 255, 255, 1) 57%, rgba(255, 255, 255, 0) 58%, rgba(255, 255, 255, 0) 100%);
-                    background: -moz-linear-gradient(to left top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 1) 43%, rgba(255, 255, 255, 1) 46%, rgba(255, 82, 22, 1) 47%, rgba(255, 82, 22, 1) 53%, rgba(255, 255, 255, 1) 54%, rgba(255, 255, 255, 1) 57%, rgba(255, 255, 255, 0) 58%, rgba(255, 255, 255, 0) 100%);
-                    background: -ms-linear-gradient(to left top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 1) 43%, rgba(255, 255, 255, 1) 46%, rgba(255, 82, 22, 1) 47%, rgba(255, 82, 22, 1) 53%, rgba(255, 255, 255, 1) 54%, rgba(255, 255, 255, 1) 57%, rgba(255, 255, 255, 0) 58%, rgba(255, 255, 255, 0) 100%);
-                    background: -o-linear-gradient(to left top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 1) 43%, rgba(255, 255, 255, 1) 46%, rgba(255, 82, 22, 1) 47%, rgba(255, 82, 22, 1) 53%, rgba(255, 255, 255, 1) 54%, rgba(255, 255, 255, 1) 57%, rgba(255, 255, 255, 0) 58%, rgba(255, 255, 255, 0) 100%);
-                    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(42%, rgba(255, 255, 255, 0)), color-stop(43%, rgba(255, 255, 255, 1)), color-stop(46%, rgba(255, 255, 255, 1)), color-stop(47%, rgba(255, 82, 22, 1)), color-stop(53%, rgba(255, 82, 22, 1)), color-stop(54%, rgba(255, 255, 255, 1)), color-stop(57%, rgba(255, 255, 255, 1)), color-stop(58%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0)));
-                    background: -webkit-linear-gradient(to left top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 1) 43%, rgba(255, 255, 255, 1) 46%, rgba(255, 82, 22, 1) 47%, rgba(255, 82, 22, 1) 53%, rgba(255, 255, 255, 1) 54%, rgba(255, 255, 255, 1) 57%, rgba(255, 255, 255, 0) 58%, rgba(255, 255, 255, 0) 100%);
-                    bottom: 0;
                     content: '';
-                    filter: 'progid:DXImageTransform.Microsoft.gradient(startColorstr=#00ffffff, endColorstr=#00ffffff, GradientType=1)';
-                    left: 0;
+                    height: 2px;
+                    width: 40px;
+                    background-color: @color-gray20;
                     position: absolute;
-                    right: 0;
                     top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    transform: rotate(-20deg);
                 }
             }
 
@@ -224,6 +216,7 @@
             }
 
             &-tooltip {
+                display: none !important;
                 .lib-css(border, @swatch-option-tooltip__border);
                 .lib-css(color, @swatch-option-tooltip__color);
                 .lib-css(background, @swatch-option-tooltip__background);
@@ -315,6 +308,9 @@
 
         &-opt {
             margin: @indent__base 0;
+            .lib-vendor-prefix-display(flex);
+            .lib-vendor-prefix-flex-direction(column-reverse);
+            gap: 1.5rem;
 
             &-listing {
                 margin-bottom: @indent__s;
@@ -351,5 +347,12 @@
         display: block;
         height: 0;
         visibility: hidden;
+    }
+}
+
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .swatch-option {
+        min-width: 20px;
     }
 }
