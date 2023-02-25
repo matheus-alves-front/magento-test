@@ -67,6 +67,14 @@
 & when (@media-common = true) {
     .swatch {
         &-attribute {
+            &:not(.color) {
+                .swatch-attribute-options {
+                    .lib-vendor-prefix-display(flex);
+                    .lib-vendor-prefix-flex-wrap(wrap);
+                    justify-content: space-between;
+                }
+            }
+
             &-label {
                 font-weight: @font-weight__bold;
                 color: @color-black;
@@ -112,15 +120,6 @@
                     width: 100%;
                 }
             }
-
-            &.size,
-            &.manufacturer {
-                .swatch-option {
-                    &.selected {
-                        
-                    }
-                }
-            }
         }
 
         &-option {
@@ -144,18 +143,22 @@
                 border: 1px solid @color-black;
                 color: @color-black;
                 font-weight: @font-weight__semibold;
-                padding: 5px 30px;
+                padding: 5px 0px;
                 background: transparent;
                 border-radius: 100px;
                 transition: .3s ease-in-out;
                 outline: none;
                 text-overflow: unset;
                 box-shadow: none;
+                width: 22%;
+                margin: 0;
+                margin-bottom: 7px;
             }
 
             &.selected {
                 .lib-css(background, @color-black);
                 .lib-css(color, @color-white);
+                border: 1px solid @color-black;
             }
 
             &:not(.disabled):hover {
